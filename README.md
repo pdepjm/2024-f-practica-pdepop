@@ -1,7 +1,5 @@
-# ejercicio-alumno
+# Práctica - PdePop
 
-## Integrantes
+### Estructuras de datos: Tuplas - Data - Listas
 
-- integrante1 (usuario github)
-- integrante2 (usuario github)
-...
+Link al enunciado: https://docs.google.com/document/d/1YSQqvULGcSTmLB9vcSMPWOABbtqqg8MS3zHinHD2f28/
