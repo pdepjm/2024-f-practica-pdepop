@@ -5,19 +5,22 @@ import PdePreludat
 data Cancion = Cancion {
     nombre :: String,
     duracion :: Number,
-    instrumentos :: [String]
+    instrumentos :: [Instrumento]
 } deriving (Show, Eq)
 
 
 -- Canciones
 patternMatching :: Cancion
-patternMatching = Cancion "Pattern Matching" 4 ["guitarra", "bajo", "bateria"]
+patternMatching = Cancion "Pattern Matching" 4 [Guitarra, Bajo, Bateria]
 
 seisDieciocho :: Cancion
-seisDieciocho = Cancion "Seis dieciocho" 3 ["teclado", "guitarra"]
+seisDieciocho = Cancion "Seis dieciocho" 3 [Teclado, Guitarra]
 
 laVidaEnHaskell :: Cancion
 laVidaEnHaskell = Cancion "La vida en Haskell" 5 []
+
+-- Instrumentos
+data Instrumento = Guitarra | Bajo | Bateria | Teclado | Saxofon deriving (Show, Eq)
 
 
 -- Aceptación
@@ -38,10 +41,10 @@ repertorio = [patternMatching, seisDieciocho, laVidaEnHaskell, melodiasFuncional
 -- SE PIDE --
 -- 1) Definir al menos 2 canciones más para la banda y agregarlas al repertorio.
 melodiasFuncionales :: Cancion
-melodiasFuncionales = Cancion "Melodias Funcionales" 2 ["guitarra"]
+melodiasFuncionales = Cancion "Melodias Funcionales" 2 [Guitarra]
 
 haskellEsAmor :: Cancion
-haskellEsAmor = Cancion "Haskell es amor" 6 ["saxofon", "bajo", "bateria"]
+haskellEsAmor = Cancion "Haskell es amor" 6 [Saxofon, Bajo, Bateria]
 
 
 -- 2) PdePop tiene la costumbre de tocar sus canciones por orden alfabético.
@@ -63,7 +66,6 @@ esAceptada cancion = aceptacion cancion > 60
 
 
 -- 5) Dado un instrumento y una canción, determinar si la canción necesita al instrumento para ser interpretada. 
-type Instrumento = String
 llevaInstrumento :: Instrumento -> Cancion -> Bool
 llevaInstrumento _ (Cancion _ _ []) = False
 llevaInstrumento instrumento cancion = elem instrumento (instrumentos cancion)
